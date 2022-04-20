@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home {
+    @apply
+    h-12
+    relative
+    before:absolute
+    before:bg-[url('../img/hero-background-l.svg')]
+    before:bg-no-repeat
+    before:bg-cover
+    before:bg-center
+    before:-z-10
+    before:translate-y-[-42vh]
+    before:h-[155vh]
+    before:w-full
+    before:block
+    ;
+}
+
+
+
+.menu {
+    @apply md:flex md:gap-8
+}
+
+.menu__item {
+    @apply font-medium flex items-center text-gray-900 hover:opacity-50 cursor-pointer border-t-2 border-t-gray-200 md:border-none;
+}
+
+.icon {
+    @apply h-5 w-5;
+}
+
+.menu__item--active > .icon {
+    @apply animate-iconRotate;
+}
+
+.menu__item--inactive > .icon {
+    @apply animate-iconReverseRotate;
+}
+
+.menu__item--hidden {
+    @apply hidden
+}
