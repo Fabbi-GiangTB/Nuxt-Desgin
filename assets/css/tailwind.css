@@ -20,13 +20,26 @@
 }
 
 
-
 .menu {
-    @apply md:flex md:gap-8
+    @apply md:flex md:gap-8 text-base;
 }
 
 .menu__item {
-    @apply font-medium flex items-center text-gray-900 hover:opacity-50 cursor-pointer border-t-2 border-t-gray-200 md:border-none;
+    @apply
+    font-medium
+    flex
+    items-center
+    text-gray-900
+    hover:opacity-50
+    cursor-pointer
+    border-t-2
+    border-t-gray-200
+    md:border-none
+    h-12;
+}
+
+.menu__item-button {
+    @apply h-auto py-3  md:py-2;
 }
 
 .icon {
@@ -44,3 +57,4 @@
 .menu__item--hidden {
     @apply hidden
 }
+

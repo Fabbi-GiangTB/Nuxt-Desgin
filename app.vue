@@ -6,4 +6,5 @@
 
 <script setup>
 const colorMode = useColorMode();
+
 </script>
