@@ -22,8 +22,7 @@
           <MenuItem class="menu__item">Design</MenuItem>
           <MenuItem class="menu__item">Collaborate</MenuItem>
           <MenuItem class="menu__item">Apps</MenuItem>
-          <MenuItem class="menu__item" hasChildren :items="menuItems">Resources
-          </MenuItem>
+          <MenuItem class="menu__item" hasChildren :items="menuItems" :handle="handle">Resources</MenuItem>
           <MenuItem class="menu__item">Pricing</MenuItem>
         </ul>
         <ul class="md:flex md:gap-4 text-base items-center">
@@ -36,6 +35,10 @@
         </ul>
       </div>
     </div>
+    <div v-if="showResource" class="hidden md:block">
+
+    </div>
+
   </header>
   <main class="home">
     <slot/>
@@ -45,16 +48,13 @@
   </footer>
 </template>
 
-<script>
-import MenuItem from "../components/menu/MenuItem";
+<script setup lang="ts">
+import {ref} from "@vue/reactivity";
 
+const menuItems= [{label: 'Get Help'},{label: 'Extensions'},{label: 'Event & Meetups'}, {label: 'Blog'}];
+const showResource = ref<boolean>(false);
+const handle = () =>{
 
-export default {
-  data() {
-    return {
-       menuItems: [{label: 'Get Help'},{label: 'Extensions'},{label: 'Event & Meetups'}, {label: 'Blog'}],
-    }
-  },
-  components: {MenuItem}
 }
+
 </script>

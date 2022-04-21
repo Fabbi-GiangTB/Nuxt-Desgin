@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {ref} from "@vue/reactivity";
-import {onMounted} from "@vue/runtime-core";
 
 
 enum ExpandStyle {
@@ -14,6 +13,7 @@ interface MenuItem {
   label?: string;
   hasChildren?: boolean;
   items?: MenuItem[];
+  handle?: () => void;
 }
 
 const props = defineProps<MenuItem>();
@@ -30,10 +30,18 @@ function closeMenu(): void {
   }
 }
 
+// const emit = defineEmits<string>(['update:modelValue']);
 function handleClick(): void {
   active.value = !active.value;
   style.value = active.value ? ExpandStyle.active : ExpandStyle.inactive;
+  props.handle && props.handle();
 }
+
+// const message = computed({
+//   get: () => props.label,
+//   set: (value) => emit('update:modelValue', value),
+// });
+
 
 </script>
 
@@ -58,8 +66,5 @@ function handleClick(): void {
         </MenuItem>
       </ul>
     </div>
-
   </template>
-
-
 </template>
