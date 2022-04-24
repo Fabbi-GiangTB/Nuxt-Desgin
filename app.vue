@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="custom">
-    Hello world!
+    <NuxtPage/>
   </NuxtLayout>
 </template>
 

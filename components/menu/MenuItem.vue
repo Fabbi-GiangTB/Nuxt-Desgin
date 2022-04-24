@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import {ref} from "@vue/reactivity";
-
-
 enum ExpandStyle {
   active = 'menu__item--active',
   inactive = 'menu__item--inactive',
@@ -13,7 +11,7 @@ interface MenuItem {
   label?: string;
   hasChildren?: boolean;
   items?: MenuItem[];
-  handle?: () => void;
+  handle?: (expand: boolean) => boolean;
 }
 
 const props = defineProps<MenuItem>();
@@ -25,22 +23,18 @@ function closeMenu(): void {
   if (active.value) {
     style.value = ExpandStyle.inactive;
     active.value = false;
+    props.handle && props.handle(active.value);
   } else {
     style.value = ExpandStyle.free;
   }
+
 }
 
-// const emit = defineEmits<string>(['update:modelValue']);
 function handleClick(): void {
   active.value = !active.value;
   style.value = active.value ? ExpandStyle.active : ExpandStyle.inactive;
-  props.handle && props.handle();
+  props.handle && props.handle(active.value);
 }
-
-// const message = computed({
-//   get: () => props.label,
-//   set: (value) => emit('update:modelValue', value),
-// });
 
 
 </script>
@@ -62,7 +56,7 @@ function handleClick(): void {
   <template v-if="props.hasChildren&&active">
     <div class="block md:hidden pl-3">
       <ul class="menu">
-        <MenuItem v-for="item in props.items" class="menu__item" :label="item.label">
+        <MenuItem  v-for="item in props.items" class="menu__item" :label="item.label">
         </MenuItem>
       </ul>
     </div>

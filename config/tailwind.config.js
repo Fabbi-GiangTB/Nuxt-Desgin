@@ -33,12 +33,24 @@ module.exports = {
                         '-webkit-transform': 'rotate(0)',
                         transform: 'rotate(0)'
                     },
+                },
+                menuAnimation: {
+                    from: {
+                        opacity: 0,
+                    },
+                    to: {
+                        opacity: 1,
+                    }
                 }
             },
             animation: {
+                menuAnimation: 'menuAnimation 0.2s ease-in-out',
                 iconRotate: 'iconRotate 0.3s ease-in-out forwards',
-                iconReverseRotate: 'iconReverseRotate 0.3s ease-in-out'
-            }
+                iconReverseRotate: 'iconReverseRotate 0.3s ease-in-out',
+
+            },
+
+
         },
     },
     plugins: [],
