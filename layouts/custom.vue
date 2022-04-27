@@ -3,7 +3,8 @@
     <div class="px-2">
       <ul class="w-full bg-white flex menu--collapsed justify-between md:hidden h-16 items-center ">
         <MenuItem class="menu__item  md:flex border-none">
-          <svg @click="expanded=!expanded" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          <svg @click="expanded=!expanded" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"
                stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
           </svg>
@@ -13,7 +14,8 @@
         </MenuItem>
         <MenuItem class="menu__item  md:flex border-none">Sign In</MenuItem>
       </ul>
-      <div :class="`${expanded?'':'hidden'} max-w-[1200px] md:h-[80px] bg-white md:bg-transparent mx-auto md:flex justify-between items-center`">
+      <div
+          :class="`${expanded?'':'hidden'} max-w-[1200px] md:h-[80px] bg-white md:bg-transparent mx-auto md:flex justify-between items-center`">
         <ul class="menu ">
           <MenuItem class="menu__item border-none menu__item--hidden md:flex">
             <img src="~assets/img/logo.svg" class="w-8 h-8" alt="">
@@ -35,7 +37,8 @@
         </ul>
       </div>
     </div>
-    <div v-if="showResource" class="hidden md:block menuAnimation bg-transparent w-full absolute left-1/2 -translate-x-1/2">
+    <div v-if="showResource"
+         class="hidden md:block menuAnimation bg-transparent w-full absolute left-1/2 -translate-x-1/2">
       <div class="w-full bg-white">
         <div class="h-[1px] max-w-[1200px] mx-auto bg-gray-200"></div>
         <div class="max-w-[1200px]  bg-white md:bg-transparent mx-auto md:flex justify-between items-center">
@@ -62,25 +65,20 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
   </header>
 
   <main>
     <div class="home"></div>
-    <div >
-      <slot/>
+    <div>
+      <NuxtPage/>
     </div>
-
-
-
   </main>
   <footer>
 
   </footer>
-  <div v-if="showResource||expanded" class="fixed z-10 top-0 left-0 w-full h-[100vh] bg-[(255,255,255,0.55)] backdrop-blur-md"></div>
+  <div v-if="showResource||expanded"
+       class="fixed z-10 top-0 left-0 w-full h-[100vh] bg-[(255,255,255,0.55)] backdrop-blur-md"></div>
 </template>
 
 <script setup lang="ts">
